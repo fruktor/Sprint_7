@@ -6,6 +6,7 @@ import io.restassured.response.Response;
 import model.CourierCreateModel;
 import model.CourierLoginRequest;
 
+import static constants.ApiConstant.*;
 import static io.restassured.RestAssured.given;
 
 
@@ -17,7 +18,7 @@ public class CourierSteps {
                 .contentType(ContentType.JSON)
                 .body(courierCreateModel)
                 .when()
-                .post("/api/v1/courier")
+                .post(CREATE_COURIER_POST)
                 .then()
                 .extract().response();
     }
@@ -28,7 +29,7 @@ public class CourierSteps {
                 .contentType(ContentType.JSON)
                 .body(courierLoginRequest)
                 .when()
-                .post("/api/v1/courier/login")
+                .post(LOGIN_COURIER_POST)
                 .then()
                 .extract().response();
     }
@@ -48,7 +49,7 @@ public class CourierSteps {
 
         return given()
                 .when()
-                .delete("/api/v1/courier/" + courierId)
+                .delete(DELETE_COURIER + courierId)
                 .then()
                 .extract().response();
 

@@ -3,7 +3,7 @@ package data;
 public class TestData {
     public static final String URL = "https://qa-scooter.praktikum-services.ru";
 
-    public static final String LOGIN = "courier54534";
+    public static final String LOGIN = "courier545345";
     public static final String PASSWORD = "123456789";
     public static final String FIRSTNAME = "Даниил";
 

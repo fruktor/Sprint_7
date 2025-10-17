@@ -5,6 +5,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import model.OrderModel;
 
+import static constants.ApiConstant.CREATE_ORDER_POST;
+import static constants.ApiConstant.ORDER_LIST_GET;
 import static io.restassured.RestAssured.given;
 
 public class OrderSteps  {
@@ -15,7 +17,7 @@ public class OrderSteps  {
                 .contentType(ContentType.JSON)
                 .body(orderModel)
                 .when()
-                .post("/api/v1/orders")
+                .post(CREATE_ORDER_POST)
                 .then()
                 .extract().response();
     }
@@ -23,7 +25,7 @@ public class OrderSteps  {
     @Step("Получение списка заказа")
     public static Response getOrderList() {
         return given()
-                .get("/api/v1/orders")
+                .get(ORDER_LIST_GET)
                 .then()
                 .extract().response();
     }
